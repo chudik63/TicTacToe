@@ -15,22 +15,22 @@ void put_inRandomCorner(char f[][FIELD_SIZE], int*, int*);
 int main() {
     char field[FIELD_SIZE][FIELD_SIZE], player, winner;
     clear_field(field);
-    printf("Выберите за кого будете играть.\n");
+    printf("╨Т╤Л╨▒╨╡╤А╨╕╤В╨╡ ╨╖╨░ ╨║╨╛╨│╨╛ ╨▒╤Г╨┤╨╡╤В╨╡ ╨╕╨│╤А╨░╤В╤М.\n");
     do {
-        printf("Введите символ x или o английской раскладки.\n");
+        printf("╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╤Б╨╕╨╝╨▓╨╛╨╗ x ╨╕╨╗╨╕ o ╨░╨╜╨│╨╗╨╕╨╣╤Б╨║╨╛╨╣ ╤А╨░╤Б╨║╨╗╨░╨┤╨║╨╕.\n");
         scanf("%c", &player);
         while(getchar()!='\n');
     }while(player != 'x' && player != 'o');
-    player == 'x' ? printf("Вы играете за крестики\n") : printf("Вы играете за нолики\n");
+    player == 'x' ? printf("╨Т╤Л ╨╕╨│╤А╨░╨╡╤В╨╡ ╨╖╨░ ╨║╤А╨╡╤Б╤В╨╕╨║╨╕\n") : printf("╨Т╤Л ╨╕╨│╤А╨░╨╡╤В╨╡ ╨╖╨░ ╨╜╨╛╨╗╨╕╨║╨╕\n");
     winner = game(field, player);
     if (winner == player) {
-        printf("Вы победили!\n");
+        printf("╨Т╤Л ╨┐╨╛╨▒╨╡╨┤╨╕╨╗╨╕!\n");
     }
     else if (winner == 1) {
-        printf("Ничья\n");
+        printf("╨Э╨╕╤З╤М╤П\n");
     }
     else {
-        printf("Вы проиграли!\n");
+        printf("╨Т╤Л ╨┐╤А╨╛╨╕╨│╤А╨░╨╗╨╕!\n");
     }
     system("pause");
     return 0;
@@ -46,8 +46,8 @@ char game(char f[][FIELD_SIZE], char player_char) {
     int rowIndex_towin = 0, columnIndex_towin = 0, is_mainDiag_towin = 0, is_sideDiag_towin = 0;
 
     print_field(f);
-    printf("Для совершения хода введите строку и столбец ячейки в которую хотите сходить, например \"2 3\".\n");
-    printf("Первыми ходят крестики.\n");
+    printf("╨Ф╨╗╤П ╤Б╨╛╨▓╨╡╤А╤И╨╡╨╜╨╕╤П ╤Е╨╛╨┤╨░ ╨▓╨▓╨╡╨┤╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г ╨╕ ╤Б╤В╨╛╨╗╨▒╨╡╤Ж ╤П╤З╨╡╨╣╨║╨╕ ╨▓ ╨║╨╛╤В╨╛╤А╤Г╤О ╤Е╨╛╤В╨╕╤В╨╡ ╤Б╤Е╨╛╨┤╨╕╤В╤М, ╨╜╨░╨┐╤А╨╕╨╝╨╡╤А \"2 3\".\n");
+    printf("╨Я╨╡╤А╨▓╤Л╨╝╨╕ ╤Е╨╛╨┤╤П╤В ╨║╤А╨╡╤Б╤В╨╕╨║╨╕.\n");
     do { 
         if (player_char == ch) {
             do {
@@ -108,7 +108,7 @@ char game(char f[][FIELD_SIZE], char player_char) {
 
             f[i][j] = ch;
             print_field(f);
-            printf("Ход компьютера: %d %d\n", bot_i+1, bot_j+1);
+            printf("╨е╨╛╨┤ ╨║╨╛╨╝╨┐╤М╤О╤В╨╡╤А╨░: %d %d\n", bot_i+1, bot_j+1);
         }
 
         ch = ch == 'x' ? 'o' : 'x';
